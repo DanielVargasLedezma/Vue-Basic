@@ -1,0 +1,50 @@
+.header {
+  background-color: burlywood;
+  border-radius: 1rem black;
+}
+
+.app-logo {
+  width: 60%;
+  margin-left: 1rem;
+}
+
+.enlace {
+  list-style: none;
+}
+
+.enlace a {
+  text-decoration: none;
+  color: cornsilk;
+  font-size: 125%;
+}
+
+.enlace a:hover {
+  color: darkcyan;
+  transition: 200ms all;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #111;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(167, 8, 8, 0.712);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 0, 0);
+}
+::-webkit-scrollbar:hover {
+  width: 10px;
+}
+
+body {
+  background-color: darkslategray;
+}
