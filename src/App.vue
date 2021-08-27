@@ -1,28 +1,29 @@
 <template>
   <div id="app">
     <Header src="../assets/logo.png"></Header>
+    <Slider text="Soy el Slider y no tengo ninguna utilidad! Justo como usted en su vida!"></Slider>
+    <Main></Main>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from './components/header.vue'
+import Slider from './components/slider.vue'
+import Main from './components/main.vue'
+import Footer from './components/footer.vue'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Slider,
+    Main,
+    Footer
   }
 }
 </script>
 
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
-
+@import "./assets/css/styles.css";
 </style>
