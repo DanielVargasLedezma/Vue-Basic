@@ -25,10 +25,10 @@
     <div class="col-md-4 col-sm-4 col-4 enlaces">
       <ul class="d-flex flex-row justify-content-end navbar">
         <li class="col-md-3 col-sm-6 col-6 enlace">
-          <a href="#"> Inicio </a>
+          <router-link to="/home"> Inicio </router-link>
         </li>
         <li class="col-md-3 col-sm-6 col-6 enlace">
-          <a href="#"> Bot </a>
+          <router-link to="/form"> Form </router-link>
         </li>
       </ul>
     </div>

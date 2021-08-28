@@ -28,6 +28,11 @@
             </div>
             <div class="col-md-4 col-sm-4 col-4"></div>
           </article>
+          <Article
+            :article_image="image_link"
+            :date_wrote="date"
+            :article_name="name"
+          ></Article>
         </div>
       </section>
       <br />
@@ -42,12 +47,22 @@
 
 <script>
 import Sidebar from "./sidebar.vue";
+import Article from "./article.vue";
 
 export default {
   name: "Main",
+  data() {
+    return {
+      image_link:
+        "https://gblobscdn.gitbook.com/spaces%2F-MTjJJdevXzCN608dwF3%2Favatar-1613555978021.png?alt=media",
+      date: Date().toString(),
+      name: "Articulo de Prueba",
+    };
+  },
   props: {},
   components: {
     Sidebar,
+    Article,
   },
 };
 </script>

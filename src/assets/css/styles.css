@@ -111,6 +111,7 @@ body {
 .article-content{
   font-size: 1rem;
 }
+
 .article-content a{
   text-decoration: none;
 }
@@ -119,4 +120,38 @@ footer{
   text-align: center;
   color: aliceblue;
   font-size: 1.5rem;
+}
+
+.form{
+  background-color:darkgray;
+}
+
+.formulary{
+  font-size: 1.5rem;
+  color: aliceblue;
+}
+
+.form-miedo{
+  background-color: darkseagreen;
+}
+
+.button-area button{
+  border-radius: .3rem;
+  background-color: aliceblue;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  
+}
+
+.inputs input{
+  background: none;
+  border: none;
+  border-bottom:aliceblue solid 0.1rem;
+  margin-bottom: 1rem;
+  
+}
+
+.router-link-active{
+  border-bottom:aliceblue solid 0.1rem;
+
 }
