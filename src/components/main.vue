@@ -3,6 +3,7 @@
     <div class="col-md-3 col-sm-3 col-3"></div>
     <div class="col-md-6 col-sm-6 col-6">
       <section class="articles-head">
+        <br />
         <h2>Ultimos articulos</h2>
         <div class="articles">
           <article
@@ -32,6 +33,7 @@
             :article_image="image_link"
             :date_wrote="date"
             :article_name="name"
+            :reference="reference"
           ></Article>
         </div>
       </section>
@@ -57,6 +59,7 @@ export default {
         "https://gblobscdn.gitbook.com/spaces%2F-MTjJJdevXzCN608dwF3%2Favatar-1613555978021.png?alt=media",
       date: Date().toString(),
       name: "Articulo de Prueba",
+      reference: "https://www.youtube.com/",
     };
   },
   props: {},

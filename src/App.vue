@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header src="../assets/logo.png"></Header>
+    <Header :src="image"></Header>
     <Slider
       text="Soy el Slider y no tengo ninguna utilidad! Justo como usted en su vida!"
     ></Slider>
@@ -18,12 +18,20 @@ import Footer from "./components/footer.vue";
 
 export default {
   name: "App",
+  date(){
+    return{
+      image:"../assets/logo.png"
+    }
+  },
   components: {
     Header,
     Slider,
     // Main,
     Footer,
   },
+  created(){
+    this.image = "../assets/logo.png";
+  }
 };
 </script>
 

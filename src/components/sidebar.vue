@@ -17,16 +17,19 @@
     </div>
     <div class="sidebar-item">
       <p>Buscar un articulo en especifico</p>
-      <form action="">
+      <div action="">
         <input
           name="buscador"
           class="buscador"
           type="text"
           placeholder="Info"
+          v-model="this.search"
         />
         <br />
-        <button type="submit" class="button-2">Buscar</button>
-      </form>
+        <button @submit.prevent @click="this.searchArticle()" class="button-2">
+          Buscar
+        </button>
+      </div>
     </div>
     <div class="sidebar-item"></div>
   </aside>
@@ -36,5 +39,15 @@
 export default {
   name: "Sidebar",
   props: {},
+  methods: {
+    searchArticle() {
+      this.$route.push(`/articles/${this.search}`);
+    },
+  },
+  data() {
+    return {
+      search: "",
+    };
+  },
 };
 </script>

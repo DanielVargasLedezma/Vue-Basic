@@ -155,3 +155,8 @@ footer{
   border-bottom:aliceblue solid 0.1rem;
 
 }
+
+.error{
+  text-align: center;
+  background-color: cornsilk;
+}

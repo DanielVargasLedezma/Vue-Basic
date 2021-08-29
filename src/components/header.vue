@@ -38,8 +38,13 @@
 <script>
 export default {
   name: "Header",
+  date(props){
+    return{
+      source: props.src
+    }
+  },
   props: {
-    src: String,
+    src: String
   },
 };
 </script>

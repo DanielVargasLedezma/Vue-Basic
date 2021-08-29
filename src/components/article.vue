@@ -3,12 +3,12 @@
     class="d-flex flex-row justify-content-between align-items-center article"
   >
     <div class="col-md-2 col-sm-2 col-2">
-      <img class="article-img" :src="article_image" alt="" />
+      <img class="article-img" :src="article_image" alt=""/>
     </div>
     <div class="col-md-6 col-sm-6 col-6 article-content">
       <h4>{{ article_name }}</h4>
       <p>{{ date_wrote }}</p>
-      <a :href="reference">Ver más</a>
+      <a :href="reference" target="_blank">Ver más</a>
     </div>
     <div class="col-md-4 col-sm-4 col-4"></div>
   </article>
