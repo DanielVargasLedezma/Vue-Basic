@@ -60,12 +60,17 @@ export default {
       date: Date().toString(),
       name: "Articulo de Prueba",
       reference: "https://www.youtube.com/",
+      text: "",
     };
   },
   props: {},
   components: {
     Sidebar,
     Article,
+  },
+  mounted() {
+    this.text = "Pagina principal";
+    this.$emit("slider_change", this.text);
   },
 };
 </script>

@@ -5,7 +5,8 @@
     <div class="col-md-3 col-sm-3 col-3"></div>
     <div class="col-md-6 col-sm-6 col-6">
       <br>
-      <p>{{ text }}</p>
+      <p v-if="text">{{ text }}</p>
+      <p v-else>Soy el Slider y no sirvo de nada!</p>
       <br>
     </div>
     <div class="col-md-3 col-sm-3 col-3"></div>

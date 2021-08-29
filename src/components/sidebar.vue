@@ -23,10 +23,10 @@
           class="buscador"
           type="text"
           placeholder="Info"
-          v-model="this.search"
+          v-model="search"
         />
         <br />
-        <button @submit.prevent @click="this.searchArticle()" class="button-2">
+        <button @submit.prevent @click="searchArticle()" class="button-2">
           Buscar
         </button>
       </div>
@@ -39,15 +39,17 @@
 export default {
   name: "Sidebar",
   props: {},
-  methods: {
-    searchArticle() {
-      this.$route.push(`/articles/${this.search}`);
-    },
-  },
   data() {
     return {
       search: "",
     };
+  },
+  methods: {
+    searchArticle() {
+      if (this.search) {
+        this.$router.push(`/articles/${this.search}`);
+      }
+    },
   },
 };
 </script>

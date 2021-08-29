@@ -14,7 +14,7 @@
         "
       >
         <div class="col-md-4 col-sm-4 col-4 icono">
-          <img src="../assets/logo.png" class="app-logo" alt="logotipo" />
+          <img :src="source" class="app-logo" alt="logotipo" />
         </div>
         <div class="col-md-4 col-sm-4 col-4 titulo">
           <h1>Vue.js</h1>
@@ -38,7 +38,7 @@
 <script>
 export default {
   name: "Header",
-  date(props){
+  data(props){
     return{
       source: props.src
     }

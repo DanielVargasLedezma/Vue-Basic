@@ -22,7 +22,7 @@
             <input type="text" placeholder="Telefono" />
           </div>
           <div class="button-area">
-            <button type="submit"> Enviar</button>
+            <button type="submit">Enviar</button>
           </div>
         </form>
       </section>
@@ -35,8 +35,14 @@
 export default {
   name: "Form",
   data() {
-    return {};
+    return {
+      text: "",
+    };
   },
   props: {},
+  mounted() {
+    this.text = "Formulario Principal";
+    this.$emit("slider_change", this.text);
+  },
 };
 </script>

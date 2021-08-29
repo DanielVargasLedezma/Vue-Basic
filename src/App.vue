@@ -2,10 +2,10 @@
   <div id="app">
     <Header :src="image"></Header>
     <Slider
-      text="Soy el Slider y no tengo ninguna utilidad! Justo como usted en su vida!"
+      :text="texto"
     ></Slider>
     <!-- <Main></Main> -->
-    <router-view></router-view>
+    <router-view @slider_change="slider_change"></router-view>
     <Footer></Footer>
   </div>
 </template>
@@ -13,24 +13,25 @@
 <script>
 import Header from "./components/header.vue";
 import Slider from "./components/slider.vue";
-// import Main from './components/main.vue'
 import Footer from "./components/footer.vue";
 
 export default {
   name: "App",
-  date(){
+  data(){
     return{
-      image:"../assets/logo.png"
+      image: "/img/logo.82b9c7a5.png",
+      texto: "Texto desde App"
     }
   },
   components: {
     Header,
     Slider,
-    // Main,
     Footer,
   },
-  created(){
-    this.image = "../assets/logo.png";
+  methods:{
+    slider_change(text){
+      this.texto= text;
+    }
   }
 };
 </script>
