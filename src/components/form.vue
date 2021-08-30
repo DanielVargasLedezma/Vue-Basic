@@ -16,19 +16,19 @@
         <form @submit.prevent action="" class form-miedo>
           <div class="inputs">
             <input v-model="user.nombre" type="text" placeholder="Nombre" />
-            <div v-if="!$v.user.nombre.required">
+            <!-- <div v-if="!$v.user.nombre.required">
               <p>Este campo es requerido</p>
-            </div>
+            </div> -->
             <br />
             <input v-model="user.correo" type="text" placeholder="Correo" />
-            <div v-if="!$v.user.correo.required">
+            <!-- <div v-if="!$v.user.correo.required">
               <p>Este campo es requerido</p>
-            </div>
+            </div> -->
             <br />
             <input v-model="user.telefono" type="text" placeholder="Telefono" />
-            <div v-if="!$v.user.telefono.required">
+            <!-- <div v-if="!$v.user.telefono.required">
               <p>Este campo es requerido</p>
-            </div>
+            </div> -->
           </div>
           <div class="button-area">
             <button @click="asignData">Enviar</button>
@@ -46,7 +46,8 @@
 </template>
 
 <script>
-import { minLenght, required, numeric, email } from 'vuelidate/lib/validators';
+// import { minLenght, required, numeric, email } from 'vuelidate/lib/validators'
+// const { minLenght, required, numeric, email } = require('vuelidate/lib/validators')
 export default {
   name: "Form",
   data() {
@@ -71,20 +72,22 @@ export default {
         this.data_sent = true;
     },
   },
-  validations:{
-    nombre:{
-      required,
-      minLenght:minLenght(4)
-    },
-    correo:{
-      required,
-      email
-    },
-    telefono:{
-      required,
-      numeric,
-      minLenght:minLenght(8)
-    }
-  }
+  // validations: {
+  //   User: {
+  //     nombre: {
+  //       required,
+  //       minLenght: minLenght(4),
+  //     },
+  //     correo: {
+  //       required,
+  //       email,
+  //     },
+  //     telefono: {
+  //       required,
+  //       numeric,
+  //       minLenght: minLenght(8),
+  //     },
+  //   },
+  // },
 };
 </script>
