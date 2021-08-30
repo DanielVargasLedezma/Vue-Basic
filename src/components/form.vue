@@ -13,18 +13,32 @@
       >
         <br />
         <h1>Escriba sus datos!</h1>
-        <form action="" class form-miedo>
+        <form @submit.prevent action="" class form-miedo>
           <div class="inputs">
-            <input type="text" placeholder="Nombre" />
+            <input v-model="user.nombre" type="text" placeholder="Nombre" />
+            <div v-if="!$v.user.nombre.required">
+              <p>Este campo es requerido</p>
+            </div>
             <br />
-            <input type="text" placeholder="Correo" />
+            <input v-model="user.correo" type="text" placeholder="Correo" />
+            <div v-if="!$v.user.correo.required">
+              <p>Este campo es requerido</p>
+            </div>
             <br />
-            <input type="text" placeholder="Telefono" />
+            <input v-model="user.telefono" type="text" placeholder="Telefono" />
+            <div v-if="!$v.user.telefono.required">
+              <p>Este campo es requerido</p>
+            </div>
           </div>
           <div class="button-area">
-            <button type="submit">Enviar</button>
+            <button @click="asignData">Enviar</button>
           </div>
         </form>
+        <div v-if="data_sent">
+          <p>Nombre: {{ user.nombre }}</p>
+          <p>Correo Electronico: {{ user.correo }}</p>
+          <p>Telefono: {{ user.telefono }}</p>
+        </div>
       </section>
     </div>
     <div class="col-md-3 col-sm-3 col-3"></div>
@@ -32,11 +46,18 @@
 </template>
 
 <script>
+import { minLenght, required, numeric, email } from 'vuelidate/lib/validators';
 export default {
   name: "Form",
   data() {
     return {
       text: "",
+      data_sent: false,
+      user: {
+        nombre: "",
+        correo: "",
+        telefono: "",
+      },
     };
   },
   props: {},
@@ -44,5 +65,26 @@ export default {
     this.text = "Formulario Principal";
     this.$emit("slider_change", this.text);
   },
+  methods: {
+    asignData() {
+      if (this.user.nombre && this.user.correo && this.user.telefono)
+        this.data_sent = true;
+    },
+  },
+  validations:{
+    nombre:{
+      required,
+      minLenght:minLenght(4)
+    },
+    correo:{
+      required,
+      email
+    },
+    telefono:{
+      required,
+      numeric,
+      minLenght:minLenght(8)
+    }
+  }
 };
 </script>

@@ -17,11 +17,12 @@
   text-decoration: none;
   color: cornsilk;
   font-size: 125%;
+  transition: 500ms all;
+
 }
 
 .enlace a:hover {
   color: darkcyan;
-  transition: 200ms all;
 }
 
 ::-webkit-scrollbar {
@@ -35,12 +36,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(167, 8, 8, 0.712);
+  background:coral;
   border-radius: 5px;
+  transition: 1000ms all;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(255, 0, 0);
+  background:cornsilk;
 }
 ::-webkit-scrollbar:hover {
   width: 10px;
@@ -159,4 +161,16 @@ footer{
 .error{
   text-align: center;
   background-color: cornsilk;
+}
+
+.header img{
+  animation: rotate infinite 30s linear;
+}
+
+@keyframes rotate{
+  from{
+    transform: rotate(0deg);
+  }to{
+    transform: rotate(360deg);
+  }
 }

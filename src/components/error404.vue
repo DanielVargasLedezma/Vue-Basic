@@ -12,6 +12,15 @@
 
 <script>
 export default {
-  name: "Error404"
+  name: "Error404",
+  data(){
+    return{
+      text:""
+    }
+  },
+  mounted() {
+    this.text = "Vaya...";
+    this.$emit("slider_change", this.text);
+  },
 };
 </script>

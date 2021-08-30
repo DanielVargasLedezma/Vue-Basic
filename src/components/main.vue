@@ -1,11 +1,11 @@
 <template>
-  <main class="d-flex flex-row justify-content-between align-items-center main">
+  <main class="d-flex flex-row justify-content-between main">
     <div class="col-md-3 col-sm-3 col-3"></div>
     <div class="col-md-6 col-sm-6 col-6">
       <section class="articles-head">
         <br />
         <h2>Ultimos articulos</h2>
-        <div class="articles">
+        <div class="articles" id="articles">
           <article
             class="
               d-flex
@@ -41,7 +41,7 @@
     </div>
     <div class="col-md-3 col-sm-3 col-3">
       <br />
-      <Sidebar></Sidebar>
+      <Sidebar @add_article="add_article"></Sidebar>
       <br />
     </div>
   </main>
@@ -71,6 +71,35 @@ export default {
   mounted() {
     this.text = "Pagina principal";
     this.$emit("slider_change", this.text);
+  },
+  methods: {
+    add_article() {
+      document.getElementById("articles").innerHTML += `
+          <article
+            class="
+              d-flex
+              flex-row
+              justify-content-between
+              align-items-center
+              article
+            "
+          >
+            <div class="col-md-2 col-sm-2 col-2">
+              <img
+                class="article-img"
+                src="${this.image_link}"
+                alt=""
+              />
+            </div>
+            <div class="col-md-6 col-sm-6 col-6 article-content">
+              <h4>${this.name}</h4>
+              <p>${this.date}</p>
+              <a href="${this.reference}">Ver más</a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-4"></div>
+          </article>
+      `;
+    },
   },
 };
 </script>
