@@ -18,7 +18,6 @@
   color: cornsilk;
   font-size: 125%;
   transition: 500ms all;
-
 }
 
 .enlace a:hover {
@@ -36,13 +35,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background:coral;
+  background: coral;
   border-radius: 5px;
   transition: 1000ms all;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background:cornsilk;
+  background: cornsilk;
 }
 ::-webkit-scrollbar:hover {
   width: 10px;
@@ -52,7 +51,7 @@ body {
   background-color: darkslategray;
 }
 
-.slider{
+.slider {
   background-color: aliceblue;
   text-align: center;
   border-radius: 0.1rem;
@@ -61,109 +60,112 @@ body {
   font-size: 2.2rem;
 }
 
-.main{
+.main {
   background-color: cornsilk;
   text-align: center;
   font-size: 1.2rem;
-  
 }
 
-.sidebar{
+.sidebar {
   text-align: center;
-  background-color:rgba(95, 158, 160, 0.781);
+  background-color: rgba(95, 158, 160, 0.781);
   border-radius: 0.5rem;
   margin-right: 1rem;
   font-size: 2rem;
   color: aliceblue;
 }
 
-.sidebar-item{
-  border-top:black solid .1rem;
-  border-bottom:black solid .1rem;
+.sidebar-item {
+  border-top: black solid 0.1rem;
+  border-bottom: black solid 0.1rem;
   font-size: 1rem;
   color: black;
 }
 
-.sidebar-item button{
-  border-radius: .3rem;
+.sidebar-item button {
+  border-radius: 0.3rem;
   background-color: burlywood;
   margin-bottom: 0.5rem;
 }
 
-.button-2{
+.button-2 {
   margin-top: 0.5rem;
 }
 
-.buscador{
+.buscador {
   background: none;
   color: black;
-  border:0;
-  border-bottom:aliceblue solid 0.1rem;
+  border: 0;
+  border-bottom: aliceblue solid 0.1rem;
 }
 
-.article-img{
+.article-img {
   width: 90%;
 }
 
-.article{
+.article {
   text-align: left;
   margin-right: 1rem;
 }
 
-.article-content{
+.article-content {
   font-size: 1rem;
 }
 
-.article-content a{
+.article-content a {
   text-decoration: none;
 }
 
-footer{
+footer {
   text-align: center;
   color: aliceblue;
   font-size: 1.5rem;
 }
 
-.form{
-  background-color:darkgray;
+.form {
+  background-color: darkgray;
 }
 
-.formulary{
+.formulary {
   font-size: 1.5rem;
   color: aliceblue;
 }
 
-.form-miedo{
-  background-color: darkseagreen;
-}
-
-.button-area button{
-  border-radius: .3rem;
+.button-area button {
+  border-radius: 0.3rem;
   background-color: aliceblue;
   margin-bottom: 0.5rem;
   text-align: center;
-  
 }
 
-.inputs input{
+.inputs input,
+textarea,
+input[type="file"] {
+  margin: 0;
+  padding: 0;
   background: none;
   border: none;
-  border-bottom:aliceblue solid 0.1rem;
+  border-bottom: aliceblue solid 0.1rem;
   margin-bottom: 1rem;
-  
 }
 
-.router-link-active{
-  border-bottom:aliceblue solid 0.1rem;
-
+textarea.form-control{
+  background: none;
+  border: none;
+  border-bottom: aliceblue solid 0.1rem;
+  margin-bottom: 1rem;
 }
 
-.error{
+.router-link-active {
+  border-bottom: aliceblue solid 0.1rem;
+}
+
+.error {
   text-align: center;
   background-color: cornsilk;
 }
 
-.header img{
+/* .header img{
   animation: rotate infinite 30s linear;
 }
 
@@ -173,4 +175,4 @@ footer{
   }to{
     transform: rotate(360deg);
   }
-}
+} */

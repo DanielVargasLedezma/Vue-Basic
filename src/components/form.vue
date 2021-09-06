@@ -12,33 +12,44 @@
         "
       >
         <br />
-        <h1>Escriba sus datos!</h1>
-        <form @submit.prevent action="" class form-miedo>
+        <h3>Escriba los datos del nuevo articulo!</h3>
+        <br />
+        <form @submit.prevent action="">
           <div class="inputs">
-            <input v-model="user.nombre" type="text" placeholder="Nombre" />
-            <!-- <div v-if="!$v.user.nombre.required">
+            <div class="input-group mb-3">
+              <input
+                class="form-control input"
+                v-model="article_data.title"
+                type="text"
+                placeholder="Titulo del articulo"
+              />
+              <!-- <div v-if="!$v.article_data.title.required">
               <p>Este campo es requerido</p>
-            </div> -->
-            <br />
-            <input v-model="user.correo" type="text" placeholder="Correo" />
-            <!-- <div v-if="!$v.user.correo.required">
+             </div> -->
+            </div>
+            <div class="input-group mb-3">
+              <input type="file" class="form-control form-control-sm" id="inputGroupFile01" />
+              <!-- <div v-if="!$v.article_data.imagen.required">
               <p>Este campo es requerido</p>
-            </div> -->
-            <br />
-            <input v-model="user.telefono" type="text" placeholder="Telefono" />
-            <!-- <div v-if="!$v.user.telefono.required">
+              </div> -->
+            </div>
+            <div class="input-group mb-3">
+              <textarea
+                class="form-control"
+                cols="23"
+                rows="3"
+                placeholder="Contenido del articulo"
+                v-model="article_data.content"
+              ></textarea>
+              <!-- <div v-if="!$v.article_data.telefono.required">
               <p>Este campo es requerido</p>
-            </div> -->
+              </div> -->
+            </div>
           </div>
           <div class="button-area">
-            <button @click="asignData">Enviar</button>
+            <button @click="asignData" class="btn btn-outline-dark">Enviar</button>
           </div>
         </form>
-        <div v-if="data_sent">
-          <p>Nombre: {{ user.nombre }}</p>
-          <p>Correo Electronico: {{ user.correo }}</p>
-          <p>Telefono: {{ user.telefono }}</p>
-        </div>
       </section>
     </div>
     <div class="col-md-3 col-sm-3 col-3"></div>
@@ -54,10 +65,10 @@ export default {
     return {
       text: "",
       data_sent: false,
-      user: {
-        nombre: "",
-        correo: "",
-        telefono: "",
+      article_data: {
+        title: "",
+        content: "",
+        image: "",
       },
     };
   },
@@ -68,7 +79,11 @@ export default {
   },
   methods: {
     asignData() {
-      if (this.user.nombre && this.user.correo && this.user.telefono)
+      if (
+        this.article_data.title &&
+        this.article_data.content &&
+        this.article_data.image
+      )
         this.data_sent = true;
     },
   },
@@ -91,3 +106,7 @@ export default {
   // },
 };
 </script>
+
+<style scoped>
+
+</style>
