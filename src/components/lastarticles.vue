@@ -4,15 +4,15 @@
     <div class="col-md-6 col-sm-6 col-6">
       <section class="articles-head">
         <br />
-        <h2>Todos los articulos</h2>
+        <h2>Ultimos articulos</h2>
         <div class="articles" id="articles">
           <Article
             v-for="article in articles"
             :key="article._id"
-            :article_image="url + `get-image/${article.image}`"
+            :article_image="image_link"
             :date_wrote="article.date"
             :article_name="article.title"
-            :reference="'/article/' + article._id"
+            :reference="'/article/'+ article._id"
           ></Article>
         </div>
       </section>
@@ -31,15 +31,13 @@ import axios from "axios";
 import { global } from "../global";
 import Sidebar from "./sidebar.vue";
 import Article from "./article.vue";
-
 export default {
-  name: "Main",
+  name: "LastArticles",
   data() {
     return {
       image_link:
         "https://gblobscdn.gitbook.com/spaces%2F-MTjJJdevXzCN608dwF3%2Favatar-1613555978021.png?alt=media",
       articles: [],
-      url: global.url,
     };
   },
   props: {},
@@ -48,7 +46,7 @@ export default {
     Article,
   },
   mounted() {
-    this.text = "Pagina principal";
+    this.text = "Página con los últimos artículos";
     this.$emit("slider_change", this.text);
     this.getArticles();
   },
@@ -58,7 +56,7 @@ export default {
     },
     getArticles() {
       axios
-        .get(this.url + "articles")
+        .get(global.url + "articles/last")
         .then((res) => {
           if (res.data.status == "success") {
             this.articles = res.data.articles;

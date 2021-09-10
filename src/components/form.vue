@@ -74,7 +74,7 @@ export default {
   },
   props: {},
   mounted() {
-    this.text = "Formulario Principal";
+    this.text = "Crear un articulo nuevo";
     this.$emit("slider_change", this.text);
   },
   methods: {

@@ -4,12 +4,12 @@
     <div class="col-md-6 col-sm-6 col-6">
       <section class="articles-head">
         <br />
-        <h2>Todos los articulos</h2>
+        <h2>Los articulos con alguna similitud son:</h2>
         <div class="articles" id="articles">
           <Article
             v-for="article in articles"
             :key="article._id"
-            :article_image="url + `get-image/${article.image}`"
+            :article_image="image_link"
             :date_wrote="article.date"
             :article_name="article.title"
             :reference="'/article/' + article._id"
@@ -18,47 +18,39 @@
       </section>
       <br />
     </div>
-    <div class="col-md-3 col-sm-3 col-3">
-      <br />
-      <Sidebar @add_article="add_article"></Sidebar>
-      <br />
-    </div>
+    <div class="col-md-3 col-sm-3 col-3"></div>
   </main>
 </template>
 
 <script>
 import axios from "axios";
 import { global } from "../global";
-import Sidebar from "./sidebar.vue";
 import Article from "./article.vue";
-
 export default {
-  name: "Main",
+  name: "SearchArticles",
   data() {
     return {
       image_link:
         "https://gblobscdn.gitbook.com/spaces%2F-MTjJJdevXzCN608dwF3%2Favatar-1613555978021.png?alt=media",
       articles: [],
-      url: global.url,
+      search: "",
+      url : global.url,
     };
   },
   props: {},
   components: {
-    Sidebar,
     Article,
   },
   mounted() {
-    this.text = "Pagina principal";
+    this.search = this.$route.params.search;
+    this.text = `Página con los articulos con la palabra o palabras "${this.search}"`;
     this.$emit("slider_change", this.text);
     this.getArticles();
   },
   methods: {
-    add_article() {
-      this.$router.push(`/form`);
-    },
     getArticles() {
       axios
-        .get(this.url + "articles")
+        .get(this.url + `search/${this.search}`)
         .then((res) => {
           if (res.data.status == "success") {
             this.articles = res.data.articles;

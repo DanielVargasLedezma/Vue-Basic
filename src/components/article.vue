@@ -8,9 +8,10 @@
     <div class="col-md-6 col-sm-6 col-6 article-content">
       <h4>{{ article_name }}</h4>
       <p>{{ date_wrote }}</p>
-      <a :href="reference" target="_blank">Ver más</a>
+      <router-link :to="reference">Ver más</router-link>
     </div>
     <div class="col-md-4 col-sm-4 col-4"></div>
+    <br>
   </article>
 </template>
 
@@ -22,6 +23,7 @@ export default {
     article_image: String,
     date_wrote: String,
     reference: String,
+    _id: String
   },
   methods: {
     convertDate() {},

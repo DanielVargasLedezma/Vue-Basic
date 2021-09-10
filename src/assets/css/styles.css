@@ -165,6 +165,18 @@ textarea.form-control{
   background-color: cornsilk;
 }
 
+.title{
+  text-decoration: none;
+  transition: 500ms all;
+  color: #111;
+}
+
+.title:hover{
+  color: cornsilk;
+}
+
+
+
 /* .header img{
   animation: rotate infinite 30s linear;
 }

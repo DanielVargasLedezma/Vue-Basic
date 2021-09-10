@@ -17,7 +17,7 @@
           <img src="../assets/logo.png" class="app-logo" alt="logotipo" />
         </div>
         <div class="col-md-4 col-sm-4 col-4 titulo">
-          <h1>Vue.js</h1>
+          <router-link to="/" class = 'title'> <h1 >Vue.js</h1> </router-link>
         </div>
       </section>
     </div>
@@ -38,13 +38,13 @@
 <script>
 export default {
   name: "Header",
-  data(props){
-    return{
-      source: props.src
-    }
+  data(props) {
+    return {
+      source: props.src,
+    };
   },
   props: {
-    src: String
+    src: String,
   },
 };
 </script>
