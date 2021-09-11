@@ -5,7 +5,7 @@
       <section class="articles-head">
         <br />
         <h2>Los articulos con alguna similitud son:</h2>
-        <div class="articles" id="articles">
+        <div class="articles" id="articles" v-if="articles && articles.lenght > 0">
           <Article
             v-for="article in articles"
             :key="article._id"
@@ -14,6 +14,9 @@
             :article_name="article.title"
             :reference="'/article/' + article._id"
           ></Article>
+        </div>
+        <div v-else>
+          <p>No hay articulos con las palabras especificadas</p>
         </div>
       </section>
       <br />
@@ -56,7 +59,9 @@ export default {
             this.articles = res.data.articles;
           }
         })
-        .catch((err) => {});
+        .catch((err) => {
+          console.error(err);
+        });
     },
   },
 };

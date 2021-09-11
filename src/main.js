@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
-import Vuelidate from "vuelidate";
+// import Vuelidate from "vuelidate";
 
 import Main from "./components/main.vue";
 import Form from "./components/form.vue";
@@ -13,7 +13,9 @@ import Error404 from "./components/error404.vue";
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
-Vue.use(Vuelidate);
+// Vue.use(Vuelidate);
+Vue.use(require('vue-moment'));
+// Vue.use(require('vuelidate'));
 
 const routes = [
   { path: "/", component: LastArticles },

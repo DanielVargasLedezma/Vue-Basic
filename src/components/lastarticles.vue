@@ -62,7 +62,9 @@ export default {
             this.articles = res.data.articles;
           }
         })
-        .catch((err) => {});
+        .catch((err) => {
+          console.error(err);
+        });
     },
   },
 };

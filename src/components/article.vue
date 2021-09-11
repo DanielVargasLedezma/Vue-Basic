@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-6 col-sm-6 col-6 article-content">
       <h4>{{ article_name }}</h4>
-      <p>{{ date_wrote }}</p>
+      <p>{{ date_wrote | moment("from", "now") }}</p>
       <router-link :to="reference">Ver más</router-link>
     </div>
     <div class="col-md-4 col-sm-4 col-4"></div>

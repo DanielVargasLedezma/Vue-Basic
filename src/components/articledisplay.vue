@@ -34,7 +34,7 @@
     <div class="col-md-3 col-sm-3 col-3">
       <br />
       <h2>Fecha en la que fue realizada el articulo</h2>
-      <p>{{ this.article.date }}</p>
+      <p>{{ this.article.date | moment("MMMM, dddd, YYYY")}}</p>
       <br />
     </div>
   </main>
@@ -47,7 +47,7 @@ export default {
   name: "ArticleDisplay",
   data() {
     return {
-      _id_search: "",
+      id_search: "",
       article: [],
       image_link:
         "https://gblobscdn.gitbook.com/spaces%2F-MTjJJdevXzCN608dwF3%2Favatar-1613555978021.png?alt=media",
@@ -55,7 +55,7 @@ export default {
     };
   },
   mounted() {
-    this._id_search = this.$route.params.id;
+    this.id_search = this.$route.params.id;
     this.text = "Informacion de Articulo";
     this.$emit("slider_change", this.text);
     this.getArticle();
@@ -63,13 +63,15 @@ export default {
   methods: {
     getArticle() {
       axios
-        .get(this.url + `article/${this._id_search}`)
+        .get(this.url + `article/${this.id_search}`)
         .then((res) => {
           if (res.data.status == "success") {
             this.article = res.data.article;
           }
         })
-        .catch((err) => {});
+        .catch((err) => {
+          console.error(err);
+        });
     },
   },
 };
