@@ -13,11 +13,11 @@
     </div>
     <div class="sidebar-item">
       <p>Presionar para agregar articulo</p>
-      <button @click="addArticle">Agregar articulo</button>
+      <button @click="add_article">Agregar articulo</button>
     </div>
     <div class="sidebar-item">
       <p>Buscar un articulo en especifico</p>
-      <form @submit.prevent action="">
+      <form @submit.prevent="searchArticle">
         <input
           name="buscador"
           class="buscador"
@@ -26,9 +26,7 @@
           v-model="search"
         />
         <br />
-        <button @click="searchArticle" class="button-2">
-          Buscar
-        </button>
+        <button class="button-2">Buscar</button>
       </form>
     </div>
     <div class="sidebar-item"></div>
@@ -50,8 +48,8 @@ export default {
         this.$router.push(`/articles/${this.search}`);
       }
     },
-    addArticle() {
-      this.$emit("add_article");
+    add_article() {
+      this.$router.push(`/form`);
     },
   },
 };

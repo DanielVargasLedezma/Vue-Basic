@@ -5,22 +5,22 @@
       <section class="articles-head">
         <br />
         <h2>Todos los articulos</h2>
-        <div class="articles" id="articles">
-          <Article
-            v-for="article in articles"
-            :key="article._id"
-            :article_image="url + `get-image/${article.image}`"
-            :date_wrote="article.date"
-            :article_name="article.title"
-            :reference="'/article/' + article._id"
-          ></Article>
+        <br />
+        <div
+          v-for="article in articles"
+          :key="article._id"
+          class="articles"
+          id="articles"
+        >
+          <Article :key="article._id" :article="article"></Article>
+          <br />
         </div>
       </section>
       <br />
     </div>
     <div class="col-md-3 col-sm-3 col-3">
       <br />
-      <Sidebar @add_article="add_article"></Sidebar>
+      <Sidebar></Sidebar>
       <br />
     </div>
   </main>
@@ -53,9 +53,6 @@ export default {
     this.getArticles();
   },
   methods: {
-    add_article() {
-      this.$router.push(`/form`);
-    },
     getArticles() {
       axios
         .get(this.url + "articles")

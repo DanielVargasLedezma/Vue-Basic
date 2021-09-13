@@ -5,15 +5,15 @@
       <section class="articles-head">
         <br />
         <h2>Ultimos articulos</h2>
-        <div class="articles" id="articles">
-          <Article
-            v-for="article in articles"
-            :key="article._id"
-            :article_image="image_link"
-            :date_wrote="article.date"
-            :article_name="article.title"
-            :reference="'/article/'+ article._id"
-          ></Article>
+        <br />
+        <div
+          v-for="article in articles"
+          :key="article._id"
+          class="articles"
+          id="articles"
+        >
+          <Article :key="article._id" :article="article"></Article>
+          <br />
         </div>
       </section>
       <br />

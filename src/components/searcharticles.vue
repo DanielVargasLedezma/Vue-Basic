@@ -5,15 +5,17 @@
       <section class="articles-head">
         <br />
         <h2>Los articulos con alguna similitud son:</h2>
-        <div class="articles" id="articles" v-if="articles && articles.lenght > 0">
-          <Article
+        <br>
+        <div v-if="articles && articles.length > 0">
+          <div
+            class="articles"
+            id="articles"
             v-for="article in articles"
             :key="article._id"
-            :article_image="image_link"
-            :date_wrote="article.date"
-            :article_name="article.title"
-            :reference="'/article/' + article._id"
-          ></Article>
+          >
+            <Article :key="article._id" :article="article"></Article>
+            <br>
+          </div>
         </div>
         <div v-else>
           <p>No hay articulos con las palabras especificadas</p>
@@ -29,15 +31,14 @@
 import axios from "axios";
 import { global } from "../global";
 import Article from "./article.vue";
+
 export default {
   name: "SearchArticles",
   data() {
     return {
-      image_link:
-        "https://gblobscdn.gitbook.com/spaces%2F-MTjJJdevXzCN608dwF3%2Favatar-1613555978021.png?alt=media",
       articles: [],
       search: "",
-      url : global.url,
+      url: global.url,
     };
   },
   props: {},

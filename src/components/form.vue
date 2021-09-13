@@ -36,7 +36,6 @@
                 name="file0"
                 ref="file"
                 @change="fileChange()"
-                required
               />
               <!-- <div v-if="!$v.article_data.imagen.required">
               <p>Este campo es requerido</p>
@@ -72,6 +71,7 @@
 // import { minLenght, required, numeric, email } from '@vuelidate/validators';
 import Article from "../models/Article.js";
 import axios from "axios";
+import swal from "sweetalert";
 import { global } from "../global";
 
 export default {
@@ -108,15 +108,31 @@ export default {
                   .post(this.url + "upload-image/" + articleId, formData)
                   .then((res) => {
                     if (res.data.article) {
+                      swal(
+                        "Articulo creado!",
+                        "El articulo con imagen se ha creado con éxito",
+                        "success"
+                      );
                       this.$router.push("/home");
                     } else {
                       //Mostrar Error
+                      swal(
+                        "Creacción fallida!",
+                        "El articulo no se ha creado correctamente",
+                        "error"
+                      );
                     }
                   })
                   .catch((err) => {
                     console.error(err);
+                    swal("Error!", "Un error desconocido ha sucedido", "error");
                   });
               } else {
+                swal(
+                  "Articulo creado!",
+                  "El articulo  sin imagen se ha creado con éxito",
+                  "success"
+                );
                 this.$router.push("/home");
               }
             }
