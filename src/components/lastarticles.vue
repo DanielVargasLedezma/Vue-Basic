@@ -4,15 +4,14 @@
     <div class="col-md-6 col-sm-6 col-6">
       <section class="articles-head">
         <br />
-        <h2>Ultimos articulos</h2>
         <br />
         <div
           v-for="article in articles"
-          :key="article._id"
+          :key="article.id"
           class="articles"
           id="articles"
         >
-          <Article :key="article._id" :article="article"></Article>
+          <Article :key="article.id" :article="article" :logged="logged" :user="user"></Article>
           <br />
         </div>
       </section>
@@ -20,7 +19,7 @@
     </div>
     <div class="col-md-3 col-sm-3 col-3">
       <br />
-      <Sidebar @add_article="add_article"></Sidebar>
+      <Sidebar v-if="logged" @add_article="add_article"></Sidebar>
       <br />
     </div>
   </main>
@@ -31,22 +30,25 @@ import axios from "axios";
 import { global } from "../global";
 import Sidebar from "./sidebar.vue";
 import Article from "./article.vue";
+import User from '../models/User';
+
 export default {
   name: "LastArticles",
   data() {
     return {
-      image_link:
-        "https://gblobscdn.gitbook.com/spaces%2F-MTjJJdevXzCN608dwF3%2Favatar-1613555978021.png?alt=media",
       articles: [],
     };
   },
-  props: {},
+  props: {
+    logged: Boolean,
+    user: User,
+  },
   components: {
     Sidebar,
     Article,
   },
   mounted() {
-    this.text = "Página con los últimos artículos";
+    this.text = "Últimos artículos";
     this.$emit("slider_change", this.text);
     this.getArticles();
   },
@@ -54,12 +56,13 @@ export default {
     add_article() {
       this.$router.push(`/form`);
     },
-    getArticles() {
-      axios
-        .get(global.url + "articles/last")
+    async getArticles() {
+      await axios
+        .get(global.url + "articles-all/last")
         .then((res) => {
-          if (res.data.status == "success") {
-            this.articles = res.data.articles;
+          if (res.data) {
+            this.articles = res.data.data;
+            // console.log(this.articles);
           }
         })
         .catch((err) => {

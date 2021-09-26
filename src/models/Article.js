@@ -1,9 +1,10 @@
 class Article {
-    constructor(title, content, date, image){
+    constructor(title, content, date, image, user_id){
         this.title = title;
         this.content = content;
         this.date = null;
         this.image = image;
+        this.user_id = user_id;
     }
 }
 // title: String,

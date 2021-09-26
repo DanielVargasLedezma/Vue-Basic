@@ -41,11 +41,9 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: cornsilk;
+  background:tan;
 }
-::-webkit-scrollbar:hover {
-  width: 10px;
-}
+
 
 body {
   background-color: darkslategray;
