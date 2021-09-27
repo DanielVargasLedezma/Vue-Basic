@@ -166,6 +166,7 @@ export default {
     this.text = "Informacion de Articulo";
     this.$emit("slider_change", this.text);
     this.getArticle();
+    console.log(this.user);
   },
   methods: {
     async getArticle() {
@@ -182,8 +183,8 @@ export default {
           console.error(err.response);
         });
     },
-    async eliminarArticulo() {
-      await swal({
+    eliminarArticulo() {
+      swal({
         title: "¿Está seguro?",
         text: "Una vez eliminado el artículo no podrá ser recuperado!",
         icon: "warning",
@@ -191,35 +192,7 @@ export default {
         dangerMode: true,
       }).then((willDelete) => {
         if (willDelete) {
-          axios
-            .delete(
-              this.url + `articles/${this.id_search}`,
-              { hello: "world" },
-              {
-                headers: "Bearer " + this.user.verification_token,
-              }
-            )
-            .then((res) => {
-              if (res.status == 204) {
-                swal(
-                  "Articulo eliminado!",
-                  "El articulo se ha eliminado",
-                  "success"
-                );
-
-                this.$router.push("/");
-              } else {
-                swal(
-                  "Articulo no eliminado!",
-                  "El articulo no se ha podido eliminar",
-                  "error"
-                );
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-              swal("Error!", "Un error desconocido ha sucedido", "error");
-            });
+          this.deleteArticle();
         } else {
           swal(
             "Articulo no eliminado!",
@@ -231,6 +204,35 @@ export default {
     },
     editarArticulo() {
       this.$router.push(`/edit-article/${this.id_search}`);
+    },
+    async deleteArticle() {
+      await axios
+        .delete(this.url + `articles/${this.id_search}`, {
+          headers: {
+            Authorization: "Bearer " + this.user.verification_token,
+          },
+        })
+        .then((res) => {
+          if (res.status == 204) {
+            swal(
+              "Articulo eliminado!",
+              "El articulo se ha eliminado",
+              "success"
+            );
+
+            this.$router.push("/");
+          } else {
+            swal(
+              "Articulo no eliminado!",
+              "El articulo no se ha podido eliminar",
+              "error"
+            );
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          swal("Error!", "Un error desconocido ha sucedido", "error");
+        });
     },
   },
 };

@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Header :src="image" :logged="logged" :user_data="user"></Header>
+    <section @logout="logout">
+      <Header @logout="logout" :logged="logged" :user="user"></Header>
+    </section>
     <Slider :text="texto"></Slider>
     <!-- <Main></Main> -->
     <router-view
@@ -8,26 +10,23 @@
       :logged="logged"
       :user="user"
       @login="login"
-      @logout="logout"
     ></router-view>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Header from "./components/header.vue";
+import Header from "./components/header/header.vue";
 import Slider from "./components/slider.vue";
 import Footer from "./components/footer.vue";
-import User from "./models/User.js";
 
 export default {
   name: "App",
   data() {
     return {
-      image: "/img/logo.82b9c7a5.png",
       texto: "Texto desde App",
       logged: false,
-      user: null
+      user: null,
     };
   },
   components: {
@@ -45,7 +44,7 @@ export default {
     },
     logout() {
       this.logged = false;
-      this.user = [];
+      this.user = null;
     },
   },
 };

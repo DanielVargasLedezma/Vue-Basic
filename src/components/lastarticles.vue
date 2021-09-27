@@ -26,8 +26,7 @@
 </template>
 
 <script>
-import axios from "axios";
-import { global } from "../global";
+import ArticleController from '../controllers/ArticleController';
 import Sidebar from "./sidebar.vue";
 import Article from "./article.vue";
 import User from '../models/User';
@@ -47,26 +46,20 @@ export default {
     Sidebar,
     Article,
   },
-  mounted() {
+  async created() {
     this.text = "Últimos artículos";
     this.$emit("slider_change", this.text);
-    this.getArticles();
+    await this.getArticles();
   },
   methods: {
     add_article() {
       this.$router.push(`/form`);
     },
     async getArticles() {
-      await axios
-        .get(global.url + "articles-all/last")
-        .then((res) => {
-          if (res.data) {
-            this.articles = res.data.data;
-            // console.log(this.articles);
-          }
-        })
-        .catch((err) => {
-          console.error(err);
+      await ArticleController.getArticles('last')
+        .then(articles => {
+          // console.log(articles);
+          this.articles = articles;
         });
     },
   },
