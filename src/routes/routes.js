@@ -1,12 +1,12 @@
 "use strict";
 
-import Main from "../components/main.vue";
-import Form from "../components/form.vue";
-import LastArticles from "../components/lastarticles.vue";
-import SearchArticles from "../components/searcharticles.vue";
-import ArticleDisplay from "../components/articledisplay.vue";
-import Error404 from "../components/error404.vue";
-import EditArticle from "../components/editarticle.vue";
+import Main from "../components/articles/allarticles/main.vue";
+import Form from "../components/articles/createarticles/form.vue";
+import LastArticles from "../components/articles/lastarticles/lastarticles.vue";
+import SearchArticles from "../components/articles/searcharticle/searcharticles.vue";
+import ArticleDisplay from "../components/articles/displayarticle/articledisplay.vue";
+import Error404 from "../components/undefined/error404.vue";
+import EditArticle from "../components/articles/editarticle/editarticle.vue";
 import Login from "../components/user/login/login.vue";
 import Register from "../components/user/register/register.vue";
 

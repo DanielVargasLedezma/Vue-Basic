@@ -3,7 +3,7 @@
 <script>
 import User from "../../../models/User.js";
 import UserController from "../../../controllers/UserController";
-import { global } from "../../../global";
+import { global } from "../../../api-url/global";
 
 export default {
   name: "Register",

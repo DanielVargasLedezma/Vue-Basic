@@ -1,0 +1,29 @@
+<main class="d-flex flex-row justify-content-between main">
+  <div class="col-md-3 col-sm-3 col-3"></div>
+  <div class="col-md-6 col-sm-6 col-6">
+    <section class="articles-head">
+      <br />
+      <br />
+      <div
+        v-for="article in articles"
+        :key="article.id"
+        class="articles"
+        id="articles"
+      >
+        <articles
+          :key="article.id"
+          :article="article"
+          :logged="logged"
+          :user="user"
+        ></articles>
+        <br />
+      </div>
+    </section>
+    <br />
+  </div>
+  <div class="col-md-3 col-sm-3 col-3">
+    <br />
+    <Sidebar v-if="logged" @add_article="add_article"></Sidebar>
+    <br />
+  </div>
+</main>

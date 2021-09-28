@@ -1,7 +1,8 @@
 "use strict";
 
-import { global } from "../global";
+import { global } from "../api-url/global";
 import axios from "axios";
+import swal from "sweetalert";
 
 export default {
   login: async (user) => {

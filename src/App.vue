@@ -4,7 +4,6 @@
       <Header @logout="logout" :logged="logged" :user="user"></Header>
     </section>
     <Slider :text="texto"></Slider>
-    <!-- <Main></Main> -->
     <router-view
       @slider_change="slider_change"
       :logged="logged"
@@ -17,8 +16,8 @@
 
 <script>
 import Header from "./components/header/header.vue";
-import Slider from "./components/slider.vue";
-import Footer from "./components/footer.vue";
+import Slider from "./components/slider/slider.vue";
+import Footer from "./components/footer/footer.vue";
 
 export default {
   name: "App",

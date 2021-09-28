@@ -5,7 +5,7 @@ class User {
     password = "",
     password_confirm = "",
     verification_token = "",
-    id = 0
+    id = ""
   ) {
     this.name = name;
     this.email = email;
