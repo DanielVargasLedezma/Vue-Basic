@@ -1,14 +1,11 @@
 <section>
   <section v-if="logged">
-    <main
-      class="
+    <main class="
           d-flex
           flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column
           justify-content-between
           main
-        "
-      v-if="charged"
-    >
+        " v-if="charged">
       <div class="col-md-3 col-sm-3 d-flex flex-row justify-content-center">
         <section class="col-md-2 col-sm-2 col-2"></section>
         <section class="articles-head col-md-8 col-sm-8 col-8">
@@ -17,19 +14,11 @@
             <h2>Imagen del articulo</h2>
             <br />
             <div v-if="article.attributes.image">
-              <img
-                class="article-img"
-                :src="url + 'articles/get-image/' + article.id"
-                alt="Article image"
-              />
+              <img class="article-img" :src="url + 'articles/get-image/' + article.id" alt="Article image" />
               <br />
             </div>
             <div v-else>
-              <img
-                class="article-img"
-                src="../../../assets/png/default.jpg"
-                alt="Article image"
-              />
+              <img class="article-img" src="../../../assets/png/default.jpg" alt="Article image" />
             </div>
             <br />
           </div>
@@ -55,14 +44,12 @@
 
         <br />
       </div>
-      <div
-        class="
+      <div class="
             col-md-3 col-sm-3
             d-flex
             flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column
             justify-content-center
-          "
-      >
+          ">
         <section class="col-md-2 col-sm-2"></section>
         <section class="col-md-8 col-sm-8">
           <br />
@@ -70,40 +57,25 @@
           <p>
             {{ article.attributes.created_at | moment("MMMM, dddd, YYYY") }}
             <br />
-            Creado por: {{ article.attributes.user.name }}
+            Creado por: <router-link :to="'/user/' + article.attributes.user.id">{{ article.attributes.user.name }}
+            </router-link>
           </p>
           <br />
 
           <h4>Acciones a realizar</h4>
-          <section
-            class="
+          <section class="
                 d-flex
                 flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column
                 justify-content-center
-              "
-          >
-            <div
-              class="col-md-6 col-sm-6"
-              v-if="article.attributes.user.id == user.id"
-            >
-              <button
-                @click="editarArticulo"
-                type="button"
-                class="btn btn-outline-secondary"
-              >
+              ">
+            <div class="col-md-6 col-sm-6" v-if="article.attributes.user.id == user.id">
+              <button @click="editarArticulo" type="button" class="btn btn-outline-secondary">
                 Editar Articulo
               </button>
             </div>
             <br />
-            <div
-              class="col-md-6 col-sm-6"
-              v-if="article.attributes.user.id == user.id"
-            >
-              <button
-                @click="eliminarArticulo"
-                type="button"
-                class="btn btn-outline-danger"
-              >
+            <div class="col-md-6 col-sm-6" v-if="article.attributes.user.id == user.id">
+              <button @click="eliminarArticulo" type="button" class="btn btn-outline-danger">
                 Eliminar Articulo
               </button>
             </div>
@@ -115,16 +87,14 @@
     </main>
   </section>
   <section v-else>
-    <main
-      class="
+    <main class="
           d-flex
           flex-row
           justify-content-between
           align-items-center
           form
           text-center
-        "
-    >
+        ">
       <div class="col-md-4 col-sm-2 col-2"></div>
       <div class="col-md-4 col-sm-2 col-2">
         <br />

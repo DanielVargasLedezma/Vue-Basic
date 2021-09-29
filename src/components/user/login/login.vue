@@ -28,6 +28,7 @@ export default {
           this.user.email = res.data.email;
           this.user.id = res.data.id;
           this.user.verification_token = res.token;
+          this.user.created_at = res.created_at;
           // console.log(this.user);
           this.$emit("login", this.user);
 

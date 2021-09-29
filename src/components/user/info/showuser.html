@@ -1,0 +1,95 @@
+<section>
+  <section v-if="logged">
+    <main
+      class="
+          d-flex
+          flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column
+          justify-content-between
+          main
+        "
+    >
+      <div class="col-md-3 col-sm-3 d-flex flex-row justify-content-center">
+        <section class="col-md-2 col-sm-2 col-2"></section>
+        <section class="articles-head col-md-8 col-sm-8 col-8">
+          <br />
+          <h3>Nombre del usuario:</h3>
+          <br />
+          <h4>{{ searched_user.name }}</h4>
+        </section>
+        <section class="col-md-0 col-sm-0 col-2"></section>
+        <br />
+      </div>
+
+      <div class="col-md-6 col-sm-6 d-flex flex-row justify-content-center">
+        <section class="col-md-2 col-sm-2 col-2"></section>
+        <section class="articles-head col-md-8 col-sm-8 col-8">
+          <div class="wrapper">
+            <br />
+            <h3>Articulos creados por este usuario:</h3>
+            <br />
+            <div
+              v-for="article in articles"
+              :key="article.id"
+              class="articles"
+              id="articles"
+            >
+              <Articles
+                :key="article.id"
+                :article="article"
+                :logged="logged"
+                :user="user"
+              ></Articles>
+              <br />
+            </div>
+          </div>
+          <br />
+        </section>
+        <section class="col-md-2 col-sm-2 col-2"></section>
+
+        <br />
+      </div>
+      <div
+        class="
+            col-md-3 col-sm-3
+            d-flex
+            flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column
+            justify-content-center
+          "
+      >
+        <section class="col-md-2 col-sm-2"></section>
+        <section class="col-md-8 col-sm-8">
+          <br />
+          <h3>Fecha en la que el usuario se unió</h3>
+          <p>
+            {{ searched_user.created_at | moment("MMMM, dddd, YYYY") }}
+          </p>
+          <br />
+        </section>
+        <section class="col-md-2 col-sm-2"></section>
+      </div>
+    </main>
+  </section>
+  <section v-else>
+    <main
+      class="
+          d-flex
+          flex-row
+          justify-content-between
+          align-items-center
+          form
+          text-center
+        "
+    >
+      <div class="col-md-4 col-sm-2 col-2"></div>
+      <div class="col-md-4 col-sm-2 col-2">
+        <br />
+        <h2>
+          Vaya... Usted no se encuentra loggeado en este momento, para ingresar
+          a este apartado debe estar loggeado...
+        </h2>
+        <br />
+      </div>
+      <div class="col-md-4 col-sm-2 col-2"></div>
+    </main>
+  </section>
+</section>

@@ -113,4 +113,16 @@ export default {
         throw err.response;
       });
   },
+  showUser: async (user_id, user) => {
+    return await axios
+      .get(global.url + `users/${user_id}`, {
+        headers: { Authorization: "Bearer " + user.verification_token },
+      })
+      .then((res) => {
+        if (res.status == 200) return res.data.data;
+      })
+      .catch((err) => {
+        throw err.response;
+      });
+  },
 };

@@ -119,4 +119,14 @@ export default {
         throw err.response;
       });
   },
+  getArticlesOfUser: async (id_user) => {
+    return await axios
+      .get(global.url + `articles/user/${id_user}`)
+      .then((res) => {
+        if (res) return res.data.data;
+      })
+      .catch((err) => {
+        throw err.response;
+      });
+  },
 };

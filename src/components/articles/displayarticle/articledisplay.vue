@@ -4,6 +4,7 @@
 import ArticleController from "../../../controllers/ArticleController";
 import { global } from "../../../api-url/global";
 import User from "../../../models/User";
+import swal from "sweetalert";
 
 export default {
   name: "ArticleDisplay",
