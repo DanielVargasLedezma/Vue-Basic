@@ -15,7 +15,7 @@ const router = new VueRouter({
   routes,
   mode: "history",
 });
-
+//Valeria es feas
 new Vue({
   router,
   render: (h) => h(App),
