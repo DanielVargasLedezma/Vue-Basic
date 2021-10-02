@@ -34,7 +34,7 @@ export default {
   },
   deleteArticle: async (articleId, user) => {
     return await axios
-      .delete(this.url + `articles/${articleId}`, {
+      .delete(global.url + `articles/${articleId}`, {
         headers: {
           Authorization: "Bearer " + user.verification_token,
         },

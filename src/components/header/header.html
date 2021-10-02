@@ -34,14 +34,27 @@
       <li class="col-md-3 col-sm-4 col-4 enlace" v-if="logged">
         <router-link to="/form"> Crear </router-link>
       </li>
-      <li class="col-md-3 col-sm-4 col-4 enlace" v-if="logged" @click="logout">
+      <li class="col-md-3 col-sm-4 col-4 enlace nav-item dropdown enlace" v-if="logged">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Acciones
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <router-link class="dropdown-item" to="/user-info">User info</router-link>
+          <router-link class="dropdown-item" to="/user-articles">My articles</router-link>
+          <div @click="logout">
+            <router-link class="dropdown-item" to="/">Logout</router-link>
+          </div>
+        </div>
+      </li>
+      <div class="col-md-1 col-sm-0 col-0"></div>
+      <!-- <li class="col-md-3 col-sm-4 col-4 enlace" v-if="logged" @click="logout">
         <router-link to="/"> Logout </router-link>
+      </li> -->
+      <li class="col-md-4 col-sm-5 col-6 enlace" v-if="!logged">
+        <router-link to="/login"> Iniciar </router-link>
       </li>
       <li class="col-md-4 col-sm-5 col-6 enlace" v-if="!logged">
-        <router-link to="/login"> Login </router-link>
-      </li>
-      <li class="col-md-4 col-sm-5 col-6 enlace" v-if="!logged">
-        <router-link to="/register"> Register </router-link>
+        <router-link to="/register"> Registrarse </router-link>
       </li>
     </ul>
   </div>

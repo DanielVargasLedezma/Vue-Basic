@@ -23,22 +23,25 @@ export default {
     logged: Boolean,
   },
   async created() {
-    this.id_search = this.$route.params.id;
-
-    this.$emit("slider_change", "Informacion de Usuario");
-
-    if (this.id_search != this.user.id) {
-      await this.getUser();
-    } else {
-      this.searched_user = this.user;
+    if(this.logged){
+      this.id_search = this.$route.params.id;
+  
+      this.$emit("slider_change", "Informacion de Usuario");
+  
+      if (this.id_search != this.user.id) {
+        await this.getUser();
+      } else {
+        this.searched_user = this.user;
+      }
+      // console.log(this.searched_user);
+      await this.getArticlesOfUser();
     }
-    await this.getArticlesOfUser();
   },
   methods: {
     async getUser() {
       await UserController.showUser(this.id_search, this.user)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           this.searched_user = res;
         })
         .catch((err) => {

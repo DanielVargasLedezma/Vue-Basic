@@ -32,3 +32,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.dropdown-item {
+  color: darkcyan !important; 
+}
+
+.dropdown-item::hover {
+  color:black !important; 
+}
+</style>
