@@ -3,7 +3,6 @@
 <script>
 import User from "../../../models/User.js";
 import UserController from "../../../controllers/UserController";
-import { global } from "../../../api-url/global";
 
 export default {
   name: "Register",
@@ -12,7 +11,6 @@ export default {
       text: "",
       data_sent: false,
       user: new User(),
-      url: global.url,
     };
   },
   mounted() {
@@ -46,4 +44,21 @@ export default {
 </script>
 
 <style scoped>
+.form-wrapper {
+  background: lightgray;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.356);
+  border-radius: 0.3rem;
+}
+
+.form-wrapper p {
+  font-size: 1rem;
+}
+
+p.register a {
+  text-decoration: none;
+}
+
+p.forgot {
+  left: 0% !important;
+}
 </style>

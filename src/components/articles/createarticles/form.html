@@ -1,58 +1,47 @@
 <section>
   <section v-if="logged">
-    <main
-      class="d-flex flex-row justify-content-between align-items-center form"
-    >
-      <div class="col-md-3 col-sm-3 col-3"></div>
-      <div class="col-md-6 col-sm-6 col-6">
-        <section
-          class="
-              d-flex
+    <main class="d-flex flex-row justify-content-between align-items-center form">
+      <div class="col-md-4 col-sm-2 col-2"></div>
+      <div class="col-md-4 col-sm-8 col-8 form-wrapper d-flex
+              flex-row
+              justify-content-between
+              align-items-center
+              formulary
+              text-center
+              mb-4
+              mt-4">
+        <div class="col-md-2 col-sm-2 col-2"></div>
+
+        <section class="
               flex-column
               justify-content-between
               align-items-center
               formulary
-            "
-        >
+              text-center
+              col-md-8 col-sm-8 col-8
+            ">
           <br />
           <h3>Escriba los datos del nuevo articulo!</h3>
           <br />
           <form @submit.prevent="sendData">
             <div class="inputs">
-              <div class="input-group mb-3">
-                <input
-                  class="form-control input"
-                  v-model="article.title"
-                  type="text"
-                  placeholder="Titulo del articulo"
-                  required
-                />
+              <div class="input-group mb-4">
+                <input class="form-control input" v-model="article.title" type="text" placeholder="Titulo del articulo"
+                  required />
                 <!-- <div v-if="!$v.article.title.required">
                 <p>Este campo es requerido</p>
               </div> -->
               </div>
-              <div class="input-group mb-3">
-                <input
-                  type="file"
-                  class="form-control form-control-sm"
-                  id="file"
-                  name="file0"
-                  ref="file"
-                  @change="fileChange()"
-                />
+              <div class="input-group mb-4">
+                <input type="file" class="form-control form-control-sm" id="file" name="file0" ref="file"
+                  @change="fileChange()" />
                 <!-- <div v-if="!$v.article.imagen.required">
               <p>Este campo es requerido</p>
               </div> -->
               </div>
-              <div class="input-group mb-3">
-                <textarea
-                  class="form-control"
-                  cols="23"
-                  rows="3"
-                  placeholder="Contenido del articulo"
-                  v-model="article.content"
-                  required
-                ></textarea>
+              <div class="input-group mb-4">
+                <textarea class="form-control" cols="23" rows="3" placeholder="Contenido del articulo"
+                  v-model="article.content" required></textarea>
                 <!-- <div v-if="!$v.article.telefono.required">
               <p>Este campo es requerido</p>
               </div> -->
@@ -63,21 +52,20 @@
             </div>
           </form>
         </section>
+        <div class="col-md-2 col-sm-2 col-2"></div>
       </div>
-      <div class="col-md-3 col-sm-3 col-3"></div>
+      <div class="col-md-4 col-sm-2 col-2"></div>
     </main>
   </section>
   <section v-else>
-    <main
-      class="
+    <main class="
           d-flex
           flex-row
           justify-content-between
           align-items-center
           form
           text-center
-        "
-    >
+        ">
       <div class="col-md-4 col-sm-2 col-2"></div>
       <div class="col-md-4 col-sm-2 col-2">
         <br />

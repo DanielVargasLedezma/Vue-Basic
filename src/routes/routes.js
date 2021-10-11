@@ -12,11 +12,13 @@ import Error404 from "../components/undefined/error404.vue";
 import EditArticle from "../components/articles/editarticle/editarticle.vue";
 import Login from "../components/user/login/login.vue";
 import Register from "../components/user/register/register.vue";
+import ForgotPassword from "../components/user/forgotpassword/forgotpassword.vue";
 
 export const routes = [
   { path: "/", component: LastArticles },
   { path: "/login", component: Login },
   { path: "/register", component: Register },
+  { path: "/forgot-password", component: ForgotPassword, children: [] },
   { path: "/home", component: Main },
   { path: "/form", component: Form },
   { path: "/articles/:search", component: SearchArticles },

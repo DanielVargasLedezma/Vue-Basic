@@ -1,68 +1,53 @@
 <section>
   <section v-if="!logged">
-    <main
-      class="d-flex flex-row justify-content-between align-items-center form"
-    >
+    <main class="d-flex flex-row justify-content-between align-items-center form">
       <div class="col-md-4 col-sm-2 col-2"></div>
-      <div class="col-md-4 col-sm-8 col-8">
-        <section
-          class="
+      <div class="col-md-4 col-sm-8 col-8 form-wrapper d-flex
+              flex-row
+              justify-content-between
+              align-items-center
+              formulary
+              text-center
+              mb-4
+              mt-4">
+        <div class="col-md-2 col-sm-2 col-2"></div>
+        <section class="
               flex-column
               justify-content-between
               align-items-center
               formulary
               text-center
-            "
-        >
+              col-md-8 col-sm-8 col-8
+            ">
           <br />
           <h3>Escriba sus datos personales</h3>
           <br />
           <form @submit.prevent="sendData">
             <div class="inputs">
-              <div class="input-group mb-4">
-                <input
-                  class="form-control input"
-                  v-model="user.name"
-                  type="text"
-                  placeholder="Nombre de Usuario"
-                  required
-                />
+              <div class="input-group mb-4 w-70">
+                <input class="form-control input" v-model="user.name" type="text" placeholder="Nombre de Usuario"
+                  required />
                 <!-- <div v-if="!$v.user.name.required">
                 <p>Este campo es requerido</p>
               </div> -->
               </div>
               <div class="input-group mb-4">
-                <input
-                  class="form-control input"
-                  placeholder="Correo electronico"
-                  v-model="user.email"
-                  type="email"
-                  required
-                />
+                <input class="form-control input" placeholder="Correo electronico" v-model="user.email" type="email"
+                  required />
                 <!-- <div v-if="!$v.user.imagen.required">
               <p>Este campo es requerido</p>
               </div> -->
               </div>
               <div class="input-group mb-4">
-                <input
-                  class="form-control input"
-                  placeholder="Contraseña"
-                  v-model="user.password"
-                  type="password"
-                  required
-                />
+                <input class="form-control input" placeholder="Contraseña" v-model="user.password" type="password"
+                  required />
                 <!-- <div v-if="!$v.user.telefono.required">
               <p>Este campo es requerido</p>
               </div> -->
               </div>
               <div class="input-group mb-4">
-                <input
-                  class="form-control input"
-                  placeholder="Confirmar Contraseña"
-                  v-model="user.password_confirm"
-                  type="password"
-                  required
-                />
+                <input class="form-control input" placeholder="Confirmar Contraseña" v-model="user.password_confirm"
+                  type="password" required />
                 <!-- <div v-if="!$v.user.telefono.required">
               <p>Este campo es requerido</p>
               </div> -->
@@ -70,25 +55,44 @@
             </div>
             <div class="button-area">
               <button class="btn btn-outline-dark">Enviar</button>
+              <section class="
+                              d-flex
+                              flex-row
+                              justify-content-between
+                              align-items-center
+                              text-center
+                          ">
+                <div class="col-md-6 col-sm-6 col-6">
+                  <p class="register">
+                    <router-link to="/login">¿Ya tiene una cuenta?</router-link>
+                  </p>
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <p class="register">
+                    <router-link to="/forgot-password">
+                      ¿Olvidó su contraseña?
+                    </router-link>
+                  </p>
+                </div>
+              </section>
             </div>
             <br />
           </form>
         </section>
+        <div class="col-md-2 col-sm-2 col-2"></div>
       </div>
       <div class="col-md-4 col-sm-2 col-2"></div>
     </main>
   </section>
   <section v-else>
-    <main
-      class="
+    <main class="
           d-flex
           flex-row
           justify-content-between
           align-items-center
           form
           text-center
-        "
-    >
+        ">
       <div class="col-md-4 col-sm-2 col-2"></div>
       <div class="col-md-4 col-sm-2 col-2">
         <br />
